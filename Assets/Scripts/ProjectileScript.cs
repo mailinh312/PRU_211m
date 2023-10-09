@@ -7,10 +7,18 @@ public class ProjectileScript : MonoBehaviour
     public float speed;
     private Rigidbody2D myBody;
 
+    public GameObject shoot_effect;
+    public GameObject hit_effect;
+
+
     // Start is called before the first frame update
     void Start()
     {
         myBody = GetComponent<Rigidbody2D>();
+
+        GameObject obj = (GameObject)Instantiate(shoot_effect, transform.position - new Vector3(0, 0, 5), Quaternion.identity); //Spawn muzzle flash
+
+        Destroy(gameObject, 5f); //Bullet will despawn after 5 seconds
     }
 
     // Update is called once per frame
@@ -24,6 +32,12 @@ public class ProjectileScript : MonoBehaviour
         if(collision.tag == "Enermy")
         {
             Destroy(collision.gameObject);
+        }
+
+        if (collision.gameObject.tag != "Plane" && collision.gameObject.tag != "Projectile" && collision.gameObject.tag != "Spawner")
+        {
+            Instantiate(hit_effect, transform.position, Quaternion.identity);
+            Destroy(gameObject);
         }
     }
 }

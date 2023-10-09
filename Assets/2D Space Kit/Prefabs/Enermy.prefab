@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   projectile: {fileID: 8824674233795295294, guid: 7dadf54238df36b4183360ddb86e0c67, type: 3}
-  gameOverPanel: {fileID: 5902481799952882605, guid: 5b957196d0bfe7a4f81d1455cc6a19dc, type: 3}
+  score: 1
 --- !u!50 &8836996975736388004
 Rigidbody2D:
   serializedVersion: 4

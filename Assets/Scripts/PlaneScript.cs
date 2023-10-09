@@ -80,4 +80,9 @@ public class Fighter : MonoBehaviour
             }
         }
     }
+
+    private void OnDestroy()
+    {
+        Level1ControllerScript.Instance.showGameOverPanel();
+    }
 }

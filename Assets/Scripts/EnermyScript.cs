@@ -12,6 +12,9 @@ public class EnermyScript : MonoBehaviour
 
     private bool canShoot = true;
 
+    [SerializeField]
+    private float score = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +43,10 @@ public class EnermyScript : MonoBehaviour
                 canShoot = false;
                 Vector3 temp = transform.position;
                 temp.y -= 0.6f;
-                Instantiate(projectile, temp, Quaternion.identity);
+            if (this.projectile != null)
+            {
+                Instantiate(this.projectile, temp, Quaternion.identity);
+            }
                 yield return new WaitForSeconds(5f);
                 canShoot = true;
             }
@@ -52,7 +58,11 @@ public class EnermyScript : MonoBehaviour
         if (collision.tag == "Plane")
         {
             Destroy(collision.gameObject);
-            Level1ControllerScript.instance.showGameOverPanel();
         }
+    }
+
+    private void OnDestroy()
+    {
+        ScoreManager.Instance.addScore(score);
     }
 }

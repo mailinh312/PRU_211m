@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class Level1ControllerScript : MonoBehaviour
 {
-    public static Level1ControllerScript instance;
+
+    private static Level1ControllerScript instance;
+    public static Level1ControllerScript Instance
+    {
+        get => instance;
+    }
 
     [SerializeField]
     private GameObject pausePanel, gameOverPanel;

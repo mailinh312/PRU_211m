@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 1340466426238254067}
   - component: {fileID: 4955329793875947902}
   - component: {fileID: 3197790300106876937}
+  - component: {fileID: 189696469685597732}
   m_Layer: 0
   m_Name: 'Enermy Projectile Sharp '
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -166,11 +167,26 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8824674233795295294}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b71b74bf11c295a47a6fa750b1f0ce0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
   projectile: {fileID: 0}
-  gameOverPanel: {fileID: 5902481799952882605, guid: 5b957196d0bfe7a4f81d1455cc6a19dc, type: 3}
+  score: 0
+--- !u!114 &189696469685597732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8824674233795295294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 370664416fe3c234fbff8da9d3f4af5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  shoot_effect: {fileID: 100002, guid: 565cdc2ed7b030a41accd8f00ae59a50, type: 3}
+  hit_effect: {fileID: 100002, guid: cafecd3fc3b761c45bb1553f35cf5c96, type: 3}
