@@ -30,13 +30,14 @@ public class EnermyProjectileScript : MonoBehaviour
     {
         if (collision.tag == "Plane")
         {
-            Destroy(collision.gameObject);
+            BloodManager.Instance.minusBlood(collision.gameObject);
+            Destroy(gameObject);
         }
 
         if (collision.gameObject.tag != "Enermy" && collision.gameObject.tag != "Projectile" && collision.gameObject.tag != "Spawner")
         {
             Instantiate(hit_effect, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            Destroy(gameObject, 10f);
         }
 
     }

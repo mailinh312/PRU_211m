@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fighter : MonoBehaviour
+public class PlaneScript : MonoBehaviour
 {
     public float speed;
     private Rigidbody2D myBody;
@@ -14,12 +14,14 @@ public class Fighter : MonoBehaviour
 
     private bool canShoot = true;
 
+    [SerializeField] protected int numOfDes = 0;
+
 
     // Start is called before the first frame update
     void Start()
     {
         myBody = GetComponent<Rigidbody2D>();
-
+        numOfDes = 0;
         Vector3 bound = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height), 0f);
         minX = -bound.x * 2.5f - 0.5f; maxX = bound.x * 2.5f + 0.5f;
         minY = -bound.y * 4.5f; maxY = bound.y * 4.5f;
@@ -83,6 +85,6 @@ public class Fighter : MonoBehaviour
 
     private void OnDestroy()
     {
-        Level1ControllerScript.Instance.showGameOverPanel();
+            Level1ControllerScript.Instance.showGameOverPanel();
     }
 }

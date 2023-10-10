@@ -15,11 +15,12 @@ public class EnermyScript : MonoBehaviour
     [SerializeField]
     private float score = 1;
 
+    public GameObject hit_effect;
+
     // Start is called before the first frame update
     void Start()
     {
         myBody = GetComponent<Rigidbody2D>();
-
     }
 
     // Update is called once per frame
@@ -30,34 +31,35 @@ public class EnermyScript : MonoBehaviour
     }
 
     private void Movement()
-    { 
+    {
         myBody.velocity = new Vector2(0, -speed);
     }
 
 
     private IEnumerator Shoot()
     {
-       
-            if (canShoot)
-            {
-                canShoot = false;
-                Vector3 temp = transform.position;
-                temp.y -= 0.6f;
+
+        if (canShoot)
+        {
+            canShoot = false;
+            Vector3 temp = transform.position;
+            temp.y -= 0.6f;
             if (this.projectile != null)
             {
                 Instantiate(this.projectile, temp, Quaternion.identity);
             }
-                yield return new WaitForSeconds(5f);
-                canShoot = true;
-            }
-       
+            yield return new WaitForSeconds(5f);
+            canShoot = true;
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Plane")
         {
-            Destroy(collision.gameObject);
+            BloodManager.Instance.minusBlood(collision.gameObject);
+            Instantiate(hit_effect, transform.position, Quaternion.identity);
         }
     }
 
