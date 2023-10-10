@@ -30,7 +30,7 @@ public class EnermyProjectileScript : MonoBehaviour
     {
         if (collision.tag == "Plane")
         {
-            BloodManager.Instance.minusBlood(collision.gameObject);
+            HeartManager.Instance.minusHeart(collision.gameObject);
             Destroy(gameObject);
         }
 

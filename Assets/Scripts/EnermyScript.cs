@@ -58,7 +58,7 @@ public class EnermyScript : MonoBehaviour
     {
         if (collision.tag == "Plane")
         {
-            BloodManager.Instance.minusBlood(collision.gameObject);
+            HeartManager.Instance.minusHeart(collision.gameObject);
             Instantiate(hit_effect, transform.position, Quaternion.identity);
         }
     }
