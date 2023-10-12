@@ -8,6 +8,8 @@ TagManager:
   - Plane
   - Enermy
   - Spawner
+  - EnermyProjectile
+  - BigEnermy
   layers:
   - Default
   - TransparentFX

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 189696469685597732}
   m_Layer: 0
   m_Name: 'Enermy Projectile Sharp '
-  m_TagString: Projectile
+  m_TagString: EnermyProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -66,5 +66,6 @@ public class EnermyScript : MonoBehaviour
     private void OnDestroy()
     {
         ScoreManager.Instance.addScore(score);
+        Instantiate(hit_effect, transform.position, Quaternion.identity);
     }
 }

@@ -14,14 +14,12 @@ public class PlaneScript : MonoBehaviour
 
     private bool canShoot = true;
 
-    [SerializeField] protected int numOfDes = 0;
-
+    public GameObject hit_effect;
 
     // Start is called before the first frame update
     void Start()
     {
         myBody = GetComponent<Rigidbody2D>();
-        numOfDes = 0;
         Vector3 bound = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height), 0f);
         minX = -bound.x * 2.5f - 0.5f; maxX = bound.x * 2.5f + 0.5f;
         minY = -bound.y * 4.5f; maxY = bound.y * 4.5f;
@@ -76,7 +74,12 @@ public class PlaneScript : MonoBehaviour
                 canShoot = false;
                 Vector3 temp = transform.position;
                 temp.y += 0.6f;
-                Instantiate(projectile, temp, Quaternion.identity);
+                Vector3 temp2 = transform.position;
+
+                if (this.projectile != null)
+                {
+                    Instantiate(this.projectile, temp, Quaternion.identity);
+                }
                 yield return new WaitForSeconds(0.2f);
                 canShoot = true;
             }
@@ -85,6 +88,7 @@ public class PlaneScript : MonoBehaviour
 
     private void OnDestroy()
     {
-            Level1ControllerScript.Instance.showGameOverPanel();
+        Level1ControllerScript.Instance.showGameOverPanel();
+        Instantiate(hit_effect, transform.position, Quaternion.identity);
     }
 }

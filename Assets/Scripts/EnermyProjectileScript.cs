@@ -33,12 +33,5 @@ public class EnermyProjectileScript : MonoBehaviour
             HeartManager.Instance.minusHeart(collision.gameObject);
             Destroy(gameObject);
         }
-
-        if (collision.gameObject.tag != "Enermy" && collision.gameObject.tag != "Projectile" && collision.gameObject.tag != "Spawner")
-        {
-            Instantiate(hit_effect, transform.position, Quaternion.identity);
-            Destroy(gameObject, 10f);
-        }
-
     }
 }

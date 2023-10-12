@@ -29,14 +29,13 @@ public class ProjectileScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Enermy")
+        if (collision.tag == "Enermy") 
         {
             Destroy(collision.gameObject);
-        }
-
-        if (collision.gameObject.tag != "Plane" && collision.gameObject.tag != "Projectile" && collision.gameObject.tag != "Spawner")
+            Destroy(gameObject);
+        } 
+        if(collision.tag == "BigEnermy")
         {
-            Instantiate(hit_effect, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

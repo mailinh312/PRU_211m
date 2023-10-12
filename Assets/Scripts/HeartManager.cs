@@ -27,17 +27,12 @@ public class HeartManager : MonoBehaviour
     }
 
     [SerializeField]
-    protected float currentHeart;
+    protected int currentHeart;
 
     void Start()
     {
         this.currentHeart = 3;
         addHeart();
-    }
-
-    void Update()
-    {
-        hearts[(int)currentHeart].gameObject.SetActive(false);
     }
 
     public void minusHeart(GameObject obj)
@@ -48,6 +43,7 @@ public class HeartManager : MonoBehaviour
         {
             Destroy(obj);
         }
+        hearts[currentHeart].gameObject.SetActive(false);
     }
 
     private void addHeart()
