@@ -12,7 +12,7 @@ public class Level1ControllerScript : MonoBehaviour
     }
 
     [SerializeField]
-    private GameObject pausePanel, gameOverPanel;
+    private GameObject pausePanel, gameOverPanel, nextLevelPanel;
 
     void Awake()
     {
@@ -52,8 +52,23 @@ public class Level1ControllerScript : MonoBehaviour
         Application.Quit();
     }
 
+    public void NextLevel()
+    {
+        Application.LoadLevel("");
+    }
+
+    public void Replay()
+    {
+        Application.LoadLevel("Level1");
+    }
+
     public void showGameOverPanel()
     {
         gameOverPanel.SetActive(true);
+    }
+
+    public void showNextLevelPanel()
+    {
+        nextLevelPanel.SetActive(true);
     }
 }
