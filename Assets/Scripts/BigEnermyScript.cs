@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class BigEnermyScript : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class BigEnermyScript : MonoBehaviour
 
     public EnermyHealthBar healthBar;
 
-    private Vector3 startPosition;
+    private Vector3 desPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +32,8 @@ public class BigEnermyScript : MonoBehaviour
         myBody = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
         healthBar.setMaxHealth(maxHealth);
-        startPosition = transform.position;
+        desPosition = transform.position;
+        desPosition.y = transform.position.y - 3;
     }
 
     // Update is called once per frame
@@ -44,14 +46,8 @@ public class BigEnermyScript : MonoBehaviour
     private void Movement()
     {
 
-        if (Vector3.Distance(startPosition, this.transform.position) == 2)
-        {
-            myBody.velocity = new Vector2(0, 0);
-        }
-        else
-        {
-            myBody.velocity = new Vector2(0, -speed);
-        }
+        transform.position = Vector3.Lerp(transform.position, desPosition, speed * Time.deltaTime);
+
     }
 
 
