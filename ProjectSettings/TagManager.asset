@@ -10,6 +10,7 @@ TagManager:
   - Spawner
   - EnermyProjectile
   - BigEnermy
+  - ItemProjectile
   layers:
   - Default
   - TransparentFX

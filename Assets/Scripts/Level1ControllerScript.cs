@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Level1ControllerScript : MonoBehaviour
@@ -13,6 +15,12 @@ public class Level1ControllerScript : MonoBehaviour
 
     [SerializeField]
     private GameObject pausePanel, gameOverPanel, nextLevelPanel;
+
+    [SerializeField]
+    private TextMeshProUGUI highScoreGameOverPanel, highScoreNextLevelPanel;
+
+    [SerializeField]
+    private ScoreManager scoreManager;
 
     void Awake()
     {
@@ -65,10 +73,12 @@ public class Level1ControllerScript : MonoBehaviour
     public void showGameOverPanel()
     {
         gameOverPanel.SetActive(true);
+        highScoreGameOverPanel.SetText("High Score: " + Convert.ToString(scoreManager.highScore));
     }
 
     public void showNextLevelPanel()
     {
         nextLevelPanel.SetActive(true);
+        highScoreNextLevelPanel.SetText("High Score: " + Convert.ToString(scoreManager.highScore));
     }
 }

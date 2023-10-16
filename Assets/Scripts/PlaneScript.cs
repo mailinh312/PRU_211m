@@ -16,12 +16,16 @@ public class PlaneScript : MonoBehaviour
 
     public GameObject hit_effect;
 
+    public float timer = 0f;
+
+    public bool getItem = false;
+
     // Start is called before the first frame update
     void Start()
     {
         myBody = GetComponent<Rigidbody2D>();
         Vector3 bound = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height), 0f);
-        minX = -bound.x * 2.5f - 0.5f; maxX = bound.x * 2.5f + 0.5f;
+        minX = -bound.x * 2.5f - 0.2f; maxX = bound.x * 2.5f + 0.2f;
         minY = -bound.y * 4.5f; maxY = bound.y * 4.5f;
     }
 
@@ -31,6 +35,10 @@ public class PlaneScript : MonoBehaviour
         Movement();
         Bound();
         StartCoroutine(Shoot());
+        if(getItem == true)
+        {
+            timer += Time.deltaTime;
+        }
     }
 
     private void Movement()
@@ -72,14 +80,45 @@ public class PlaneScript : MonoBehaviour
             if (canShoot)
             {
                 canShoot = false;
-                Vector3 temp = transform.position;
-                temp.y += 0.6f;
-                Vector3 temp2 = transform.position;
-
-                if (this.projectile != null)
+                
+                if (getItem == true)
                 {
-                    Instantiate(this.projectile, temp, Quaternion.identity);
+                    
+                    if (timer < 5f)
+                    {
+                        Vector3 temp1 = transform.position;
+                        Vector3 temp2 = transform.position;
+                        temp1.x -= 0.05f;
+                        temp1.y += 0.6f;
+
+                        temp2.x += 0.05f;
+                        temp2.y += 0.6f;
+
+
+                        if (this.projectile != null)
+                        {
+                            Instantiate(this.projectile, temp1, Quaternion.identity);
+                            Instantiate(this.projectile, temp2, Quaternion.identity);
+                        }
+                    }
+                    else
+                    {
+                        getItem = false;
+                        timer = 0f;
+                    }
                 }
+
+                else
+                {
+                    Vector3 temp = transform.position;
+                    temp.y += 0.6f;
+
+                    if (this.projectile != null)
+                    {
+                        Instantiate(this.projectile, temp, Quaternion.identity);
+                    }
+                }
+
                 yield return new WaitForSeconds(0.2f);
                 canShoot = true;
             }
@@ -90,5 +129,13 @@ public class PlaneScript : MonoBehaviour
     {
         Level1ControllerScript.Instance.showGameOverPanel();
         Instantiate(hit_effect, transform.position, Quaternion.identity);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "ItemProjectile")
+        {
+            getItem = true;
+        }
     }
 }

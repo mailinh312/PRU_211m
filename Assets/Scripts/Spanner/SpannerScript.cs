@@ -6,7 +6,7 @@ using UnityEngine;
 public class SpannerScript : MonoBehaviour
 {
     [SerializeField]
-    private GameObject enemy, bigEnermy;
+    private GameObject enemy, bigEnermy, item;
 
     private BoxCollider2D box;
 
@@ -17,11 +17,12 @@ public class SpannerScript : MonoBehaviour
     {
         box = GetComponent<BoxCollider2D>();
         StartCoroutine(GenernateEnermy());
+        StartCoroutine(GenernateItem());
         count = 0;
     }
     private void Update()
     {
-        if(count == 5)
+        if(count == 30)
         {
             bigEnermy.SetActive(true);
         }
@@ -41,5 +42,19 @@ public class SpannerScript : MonoBehaviour
         StartCoroutine(GenernateEnermy());
 
         count += 1;
+    }
+
+    private IEnumerator GenernateItem()
+    {
+
+        yield return new WaitForSeconds(Random.Range(10f, 15f));
+
+        float minX = -box.bounds.size.x / 2f;
+        float maxX = box.bounds.size.x / 2f;
+
+        Vector3 temp = transform.position;
+        temp.x = Random.Range(minX, maxX);
+        Instantiate(item, temp, Quaternion.identity);
+        StartCoroutine(GenernateItem());
     }
 }

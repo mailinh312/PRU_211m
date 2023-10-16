@@ -45,9 +45,7 @@ public class BigEnermyScript : MonoBehaviour
 
     private void Movement()
     {
-
         transform.position = Vector3.Lerp(transform.position, desPosition, speed * Time.deltaTime);
-
     }
 
 

@@ -11,6 +11,9 @@ public class ScoreManager : MonoBehaviour
         get => instance; 
     }
 
+    [SerializeField]
+    public float highScore;
+
     private void Awake()
     {
         if (instance == null)
@@ -33,6 +36,11 @@ public class ScoreManager : MonoBehaviour
     void Update()
     {
         scoreTxt.text = currentScore + "";
+        if(currentScore > PlayerPrefs.GetFloat("highScore")) {
+            PlayerPrefs.SetFloat("highScore", currentScore);
+        }
+
+        highScore = PlayerPrefs.GetFloat("highScore");
     }
 
     public void addScore(float score)
