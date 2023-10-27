@@ -40,8 +40,7 @@ public class EnermyScript : MonoBehaviour
     {
 
         if (canShoot)
-        {
-            AudioManager.Instance.PlayShootingSFX();    
+        {  
             canShoot = false;
             Vector3 temp = transform.position;
             temp.y -= 0.6f;
@@ -59,6 +58,7 @@ public class EnermyScript : MonoBehaviour
     {
         if (collision.tag == "Plane")
         {
+            AudioManager.Instance.PlayHitByEnermySFX();
             HeartManager.Instance.minusHeart(collision.gameObject);
             Instantiate(hit_effect, transform.position, Quaternion.identity);
         }

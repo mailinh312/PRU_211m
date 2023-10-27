@@ -19,10 +19,14 @@ public class AudioManager : MonoBehaviour
     [SerializeField] protected AudioSource UISFX;
     [SerializeField] protected AudioSource winningSFX;
     [SerializeField] protected AudioSource loseSFX;
+    [SerializeField] protected AudioSource itemSFX;
+    [SerializeField] protected AudioSource HitByEnermySFX;
 
     public void PlayShootingSFX() => shootingSFX.Play();
     public void PlayDieSFX() => dieSFX.Play();
     public void PlayWinningSFX() => winningSFX.Play();
     public void PlayUISFX() => UISFX.Play();
     public void PlayLoseSFX() => loseSFX.Play();
+    public void PlayItemSFX() => itemSFX.Play();
+    public void PlayHitByEnermySFX() => HitByEnermySFX.Play();
 }

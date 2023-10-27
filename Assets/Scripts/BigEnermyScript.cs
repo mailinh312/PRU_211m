@@ -83,6 +83,7 @@ public class BigEnermyScript : MonoBehaviour
     {
         if (collision.tag == "Plane")
         {
+            AudioManager.Instance.PlayHitByEnermySFX();
             HeartManager.Instance.minusHeart(collision.gameObject);
             Instantiate(hit_effect, transform.position, Quaternion.identity);
         }
@@ -95,6 +96,7 @@ public class BigEnermyScript : MonoBehaviour
 
     private void OnDestroy()
     {
+        AudioManager.Instance.PlayDieSFX();
         AudioManager.Instance.PlayWinningSFX();
         ScoreManager.Instance.addScore(score);
         Instantiate(hit_effect, transform.position, Quaternion.identity);
