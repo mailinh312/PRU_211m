@@ -77,8 +77,10 @@ public class PlaneScript : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
+            
             if (canShoot)
             {
+                AudioManager.Instance.PlayShootingSFX();
                 canShoot = false;
                 
                 if (getItem == true)
@@ -127,6 +129,7 @@ public class PlaneScript : MonoBehaviour
 
     private void OnDestroy()
     {
+        AudioManager.Instance.PlayLoseSFX();
         Level1ControllerScript.Instance.showGameOverPanel();
         Instantiate(hit_effect, transform.position, Quaternion.identity);
     }

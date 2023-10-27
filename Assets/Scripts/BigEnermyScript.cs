@@ -54,6 +54,7 @@ public class BigEnermyScript : MonoBehaviour
 
         if (canShoot)
         {
+            AudioManager.Instance.PlayShootingSFX();
             canShoot = false;
             Vector3 temp1 = transform.position;
             temp1.x -= 0.2f;
@@ -94,6 +95,7 @@ public class BigEnermyScript : MonoBehaviour
 
     private void OnDestroy()
     {
+        AudioManager.Instance.PlayWinningSFX();
         ScoreManager.Instance.addScore(score);
         Instantiate(hit_effect, transform.position, Quaternion.identity);
         Level1ControllerScript.Instance.showNextLevelPanel();
