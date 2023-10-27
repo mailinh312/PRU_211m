@@ -30,6 +30,7 @@ public class EnermyProjectileScript : MonoBehaviour
     {
         if (collision.tag == "Plane")
         {
+            AudioManager.Instance.PlayHitByEnermySFX();
             HeartManager.Instance.minusHeart(collision.gameObject);
             Destroy(gameObject);
         }

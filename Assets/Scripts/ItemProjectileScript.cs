@@ -29,7 +29,8 @@ public class ItemProjectileScript : MonoBehaviour
     {
         if (collision.tag == "Plane")
         {
-           Destroy(gameObject);
+            AudioManager.Instance.PlayItemSFX();
+            Destroy(gameObject);
         }
     }
 }
