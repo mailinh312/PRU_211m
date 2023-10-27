@@ -62,7 +62,7 @@ public class Level1ControllerScript : MonoBehaviour
 
     public void NextLevel()
     {
-        Application.LoadLevel("");
+        Application.LoadLevel("Level2");
     }
 
     public void Replay()
