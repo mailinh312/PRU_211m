@@ -29,7 +29,7 @@ public class ProjectileScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "BigEnermy")
+        if(collision.tag == "BigEnermy" || collision.tag=="Enermy")
         {
             Destroy(gameObject);
         }
