@@ -561,7 +561,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy1: {fileID: 7613476295351267910, guid: 5f2101a96b29a284bb134af7bb42f3c6, type: 3}
-  enemy2: {fileID: 4736407513156933780, guid: 06c8127c0cbb3c14a97a1fb351c0a34a, type: 3}
+  enemy2: {fileID: 4736407513156933780, guid: e09eb9549b278534a9ec0155fe07c108, type: 3}
   bigEnermy: {fileID: 517354002}
   item: {fileID: 8816161183035343388, guid: 7782b9ef0c117ad4da13c6cfa0054b57, type: 3}
 --- !u!4 &306735711 stripped
