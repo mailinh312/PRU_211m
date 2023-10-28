@@ -19,7 +19,7 @@ public class BigEnermyScript : MonoBehaviour
 
     public GameObject hit_effect;
 
-    public int maxHealth = 100;
+    public int maxHealth = 1000;
     public int currentHealth;
 
     public EnermyHealthBar healthBar;
@@ -89,7 +89,7 @@ public class BigEnermyScript : MonoBehaviour
         }
         if (collision.tag == "Projectile")
         {
-            currentHealth -= 5;
+            currentHealth -= 1;
             healthBar.setHealth(currentHealth, gameObject);
         }
     }
