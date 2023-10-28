@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnermyScript : MonoBehaviour
+public class BigEnermy2Script : MonoBehaviour
 {
     public float speed;
     private Rigidbody2D myBody;
@@ -13,14 +13,25 @@ public class EnermyScript : MonoBehaviour
     private bool canShoot = true;
 
     [SerializeField]
-    private float score = 1;
+    private float score = 10;
 
     public GameObject hit_effect;
+
+    public int maxHealth = 100;
+    public int currentHealth;
+
+    public EnermyHealthBar healthBar;
+
+    private Vector3 desPosition;
 
     // Start is called before the first frame update
     void Start()
     {
         myBody = GetComponent<Rigidbody2D>();
+        currentHealth = maxHealth;
+        healthBar.setMaxHealth(maxHealth);
+        desPosition = transform.position;
+        desPosition.y = transform.position.y - 3;
     }
 
     // Update is called once per frame
@@ -32,7 +43,7 @@ public class EnermyScript : MonoBehaviour
 
     private void Movement()
     {
-        myBody.velocity = new Vector2(0, -speed);
+        transform.position = Vector3.Lerp(transform.position, desPosition, speed * Time.deltaTime);
     }
 
 
@@ -40,13 +51,25 @@ public class EnermyScript : MonoBehaviour
     {
 
         if (canShoot)
-        {  
+        {
+            AudioManager.Instance.PlayShootingSFX();
             canShoot = false;
-            Vector3 temp = transform.position;
-            temp.y -= 0.6f;
+            Vector3 temp1 = transform.position;
+            temp1.x -= 0.5f;
+            temp1.y -= 0.6f;
+
+            Vector3 temp2 = transform.position;
+            temp2.y -= 0.6f;
+
+            Vector3 temp3 = transform.position;
+            temp3.x += 0.5f;
+            temp3.y -= 0.6f;
+
             if (this.projectile != null)
             {
-                Instantiate(this.projectile, temp, Quaternion.identity);
+                Instantiate(this.projectile, temp1, Quaternion.identity);
+                Instantiate(this.projectile, temp2, Quaternion.identity);
+                Instantiate(this.projectile, temp3, Quaternion.identity);
             }
             yield return new WaitForSeconds(5f);
             canShoot = true;
@@ -62,17 +85,19 @@ public class EnermyScript : MonoBehaviour
             HeartManager.Instance.minusHeart(collision.gameObject);
             Instantiate(hit_effect, transform.position, Quaternion.identity);
         }
-
-        if(collision.tag == "Projectile")
+        if (collision.tag == "Projectile")
         {
-            Destroy(gameObject);
+            currentHealth -= 2;
+            healthBar.setHealth(currentHealth, gameObject);
         }
     }
 
     private void OnDestroy()
     {
         AudioManager.Instance.PlayDieSFX();
+        AudioManager.Instance.PlayWinningSFX();
         ScoreManager.Instance.addScore(score);
         Instantiate(hit_effect, transform.position, Quaternion.identity);
+        Level1ControllerScript.Instance.showNextLevelPanel();
     }
 }

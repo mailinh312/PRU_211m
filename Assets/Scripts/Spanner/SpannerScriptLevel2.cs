@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpannerScript : MonoBehaviour
+public class NewBehaviourScript : MonoBehaviour
 {
     [SerializeField]
-    private GameObject enemy, bigEnermy, item;
+    private GameObject enemy1, enemy2, bigEnermy, item;
 
     private BoxCollider2D box;
 
@@ -21,7 +21,7 @@ public class SpannerScript : MonoBehaviour
     }
     private void Update()
     {
-        if(count == 30)
+        if (count == 30)
         {
             bigEnermy.SetActive(true);
         }
@@ -35,9 +35,12 @@ public class SpannerScript : MonoBehaviour
         float minX = -box.bounds.size.x / 2f;
         float maxX = box.bounds.size.x / 2f;
 
-        Vector3 temp = transform.position;
-        temp.x = Random.Range(minX, maxX);
-        Instantiate(enemy, temp, Quaternion.identity);
+        Vector3 temp1 = transform.position;
+        temp1.x = Random.Range(minX, maxX);
+        Vector3 temp2 = transform.position;
+        temp2.x = Random.Range(minX, maxX);
+        Instantiate(enemy1, temp1, Quaternion.identity);
+        Instantiate(enemy2, temp2, Quaternion.identity);
         StartCoroutine(GenernateEnermy());
 
         count += 1;

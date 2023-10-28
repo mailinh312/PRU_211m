@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnermyScript : MonoBehaviour
+public class Enermy2Script : MonoBehaviour
 {
     public float speed;
     private Rigidbody2D myBody;
@@ -13,14 +13,17 @@ public class EnermyScript : MonoBehaviour
     private bool canShoot = true;
 
     [SerializeField]
-    private float score = 1;
+    private float score = 2;
 
     public GameObject hit_effect;
+
+    public int numOfAttack;
 
     // Start is called before the first frame update
     void Start()
     {
         myBody = GetComponent<Rigidbody2D>();
+        numOfAttack = 0;
     }
 
     // Update is called once per frame
@@ -40,7 +43,7 @@ public class EnermyScript : MonoBehaviour
     {
 
         if (canShoot)
-        {  
+        {
             canShoot = false;
             Vector3 temp = transform.position;
             temp.y -= 0.6f;
@@ -62,10 +65,13 @@ public class EnermyScript : MonoBehaviour
             HeartManager.Instance.minusHeart(collision.gameObject);
             Instantiate(hit_effect, transform.position, Quaternion.identity);
         }
-
-        if(collision.tag == "Projectile")
+        if (collision.tag == "Projectile")
         {
-            Destroy(gameObject);
+            numOfAttack += 1;
+            if (numOfAttack >= 2)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
