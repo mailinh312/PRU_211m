@@ -57,7 +57,7 @@ public class Level1ControllerScript : MonoBehaviour
 
     public void newGame2()
     {
-        Application.LoadLevel("Level1");
+        Application.LoadLevel("Level2");
     }
 
     public void QuitGame()
