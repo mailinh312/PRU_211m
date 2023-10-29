@@ -41,7 +41,6 @@ public class Enermy2Script : MonoBehaviour
 
     private IEnumerator Shoot()
     {
-
         if (canShoot)
         {
             canShoot = false;

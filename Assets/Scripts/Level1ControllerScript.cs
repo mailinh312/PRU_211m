@@ -55,6 +55,11 @@ public class Level1ControllerScript : MonoBehaviour
         Application.LoadLevel("Level1");
     }
 
+    public void newGame2()
+    {
+        Application.LoadLevel("Level1");
+    }
+
     public void QuitGame()
     {
         Application.Quit();
@@ -64,10 +69,19 @@ public class Level1ControllerScript : MonoBehaviour
     {
         Application.LoadLevel("Level2");
     }
+    public void NextLevel2()
+    {
+        Application.LoadLevel("Level2");
+    }
 
     public void Replay()
     {
         Application.LoadLevel("Level1");
+    }
+
+    public void Replay2()
+    {
+        Application.LoadLevel("Level2");
     }
 
     public void showGameOverPanel()
