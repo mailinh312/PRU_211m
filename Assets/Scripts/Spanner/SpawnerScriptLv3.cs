@@ -32,21 +32,23 @@ public class SpawnerScriptLv3 : MonoBehaviour
 
         yield return new WaitForSeconds(Random.Range(1f, 3f));
 
-        float minX = -box.bounds.size.x / 2f;
-        float maxX = box.bounds.size.x / 2f;
+        {
+            float minX = -box.bounds.size.x / 2f;
+            float maxX = box.bounds.size.x / 2f;
 
-        Vector3 temp1 = transform.position;
-        temp1.x = Random.Range(minX, maxX);
-        Vector3 temp2 = transform.position;
-        temp2.x = Random.Range(minX, maxX);
-        Vector3 temp3 = transform.position;
-        temp3.x = Random.Range(minX, maxX);
-        Instantiate(enemy1, temp1, Quaternion.identity);
-        Instantiate(enemy2, temp2, Quaternion.identity);
-        Instantiate(enemy3, temp3, Quaternion.identity);
-        StartCoroutine(GenernateEnermy());
+            Vector3 temp1 = transform.position;
+            temp1.x = Random.Range(minX, maxX);
+            Vector3 temp2 = transform.position;
+            temp2.x = Random.Range(minX, maxX);
+            Vector3 temp3 = transform.position;
+            temp3.x = Random.Range(minX, maxX);
+            Instantiate(enemy1, temp1, Quaternion.identity);
+            Instantiate(enemy2, temp2, Quaternion.identity);
+            Instantiate(enemy3, temp3, Quaternion.identity);
+            count += 1;
+            StartCoroutine(GenernateEnermy());
 
-        count += 1;
+        }
     }
 
     private IEnumerator GenernateItem()

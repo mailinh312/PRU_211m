@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class BigEnermy2Script : MonoBehaviour
+public class Boss2Script : MonoBehaviour
 {
     public float speed;
     private Rigidbody2D myBody;
@@ -24,7 +23,6 @@ public class BigEnermy2Script : MonoBehaviour
     public EnermyHealthBar healthBar;
 
     private Vector3 desPosition;
-    private bool isBossAlive = true;
 
     // Start is called before the first frame update
     void Start()
@@ -101,8 +99,5 @@ public class BigEnermy2Script : MonoBehaviour
         ScoreManager.Instance.addScore(score);
         Instantiate(hit_effect, transform.position, Quaternion.identity);
         Level1ControllerScript.Instance.showNextLevelPanel();
-        
-
-
     }
 }

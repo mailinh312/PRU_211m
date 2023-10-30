@@ -8,6 +8,7 @@ public class NewBehaviourScript : MonoBehaviour
     private GameObject enemy1, enemy2, bigEnermy, item;
 
     private BoxCollider2D box;
+    private bool isBossActive = false;
 
     private int count;
 
@@ -21,16 +22,17 @@ public class NewBehaviourScript : MonoBehaviour
     }
     private void Update()
     {
-        if (count == 30)
+        if (count == 10)
         {
+            isBossActive = true;
             bigEnermy.SetActive(true);
         }
     }
 
     private IEnumerator GenernateEnermy()
     {
-
-        yield return new WaitForSeconds(Random.Range(1f, 3f));
+       
+       yield return new WaitForSeconds(Random.Range(1f, 3f));
 
         float minX = -box.bounds.size.x / 2f;
         float maxX = box.bounds.size.x / 2f;
@@ -39,11 +41,17 @@ public class NewBehaviourScript : MonoBehaviour
         temp1.x = Random.Range(minX, maxX);
         Vector3 temp2 = transform.position;
         temp2.x = Random.Range(minX, maxX);
-        Instantiate(enemy1, temp1, Quaternion.identity);
-        Instantiate(enemy2, temp2, Quaternion.identity);
-        StartCoroutine(GenernateEnermy());
+        
+            Instantiate(enemy1, temp1, Quaternion.identity);
+            Instantiate(enemy2, temp2, Quaternion.identity);
+            StartCoroutine(GenernateEnermy());
 
-        count += 1;
+            count += 1;
+        
+       
+        
+        
+        
     }
 
     private IEnumerator GenernateItem()

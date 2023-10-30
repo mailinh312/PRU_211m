@@ -60,6 +60,12 @@ public class Level1ControllerScript : MonoBehaviour
         Application.LoadLevel("Level2");
     }
 
+    public void newGame3()
+    {
+        Application.LoadLevel("Level3");
+
+    }
+
     public void QuitGame()
     {
         Application.Quit();
@@ -73,7 +79,10 @@ public class Level1ControllerScript : MonoBehaviour
     {
         Application.LoadLevel("Level2");
     }
-
+    public void NextLevel3()
+    {
+        Application.LoadLevel("Level3");
+    }
     public void Replay()
     {
         Application.LoadLevel("Level1");
@@ -83,7 +92,10 @@ public class Level1ControllerScript : MonoBehaviour
     {
         Application.LoadLevel("Level2");
     }
-
+    public void Replay3()
+    {
+        Application.LoadLevel("Level3");
+    }
     public void showGameOverPanel()
     {
         gameOverPanel.SetActive(true);
@@ -95,4 +107,6 @@ public class Level1ControllerScript : MonoBehaviour
         nextLevelPanel.SetActive(true);
         highScoreNextLevelPanel.SetText("High Score: " + Convert.ToString(scoreManager.highScore));
     }
+
+   
 }

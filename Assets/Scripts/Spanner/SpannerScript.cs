@@ -21,7 +21,7 @@ public class SpannerScript : MonoBehaviour
     }
     private void Update()
     {
-        if(count == 15)
+        if(count == 10)
         {
             bigEnermy.SetActive(true);
         }
