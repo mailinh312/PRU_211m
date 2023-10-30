@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -65,6 +65,7 @@ public class Boss2Script : MonoBehaviour
             temp3.x += 0.5f;
             temp3.y -= 0.6f;
 
+
             if (this.projectile != null)
             {
                 Instantiate(this.projectile, temp1, Quaternion.identity);
@@ -87,7 +88,7 @@ public class Boss2Script : MonoBehaviour
         }
         if (collision.tag == "Projectile")
         {
-            currentHealth -= 2;
+            currentHealth -= 1;
             healthBar.setHealth(currentHealth, gameObject);
         }
     }

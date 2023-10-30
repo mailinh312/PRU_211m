@@ -21,7 +21,7 @@ public class SpawnerScriptLv3 : MonoBehaviour
     }
     private void Update()
     {
-        if (count == 1)
+        if (count == 15)
         {
             bigEnermy.SetActive(true);
         }

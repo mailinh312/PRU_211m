@@ -1170,7 +1170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pausePanel: {fileID: 291715507}
   gameOverPanel: {fileID: 372891607}
-  nextLevelPanel: {fileID: 0}
+  nextLevelPanel: {fileID: 1403932401}
   highScoreGameOverPanel: {fileID: 1710268566}
   highScoreNextLevelPanel: {fileID: 1710268566}
   scoreManager: {fileID: 0}
@@ -3338,6 +3338,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1396887507}
   m_CullTransparentMesh: 1
+--- !u!1 &1403932401 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5902481799952882605, guid: 5b957196d0bfe7a4f81d1455cc6a19dc, type: 3}
+  m_PrefabInstance: {fileID: 99308706}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1444195924
 PrefabInstance:
   m_ObjectHideFlags: 0
