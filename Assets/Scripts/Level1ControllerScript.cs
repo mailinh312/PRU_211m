@@ -53,16 +53,19 @@ public class Level1ControllerScript : MonoBehaviour
     public void newGame()
     {
         Application.LoadLevel("Level1");
+        Time.timeScale = 1f;
     }
 
     public void newGame2()
     {
         Application.LoadLevel("Level2");
+        Time.timeScale = 1f;
     }
 
     public void newGame3()
     {
         Application.LoadLevel("Level3");
+        Time.timeScale = 1f;
 
     }
 
@@ -74,39 +77,47 @@ public class Level1ControllerScript : MonoBehaviour
     public void NextLevel()
     {
         Application.LoadLevel("Level2");
+        Time.timeScale = 1f;
     }
     public void NextLevel2()
     {
         Application.LoadLevel("Level2");
+        Time.timeScale = 1f;
     }
     public void NextLevel3()
     {
         Application.LoadLevel("Level3");
+        Time.timeScale = 1f;
     }
     public void Replay()
     {
         Application.LoadLevel("Level1");
+        Time.timeScale = 1f;
     }
 
     public void Replay2()
     {
         Application.LoadLevel("Level2");
+        Time.timeScale = 1f;
     }
     public void Replay3()
     {
         Application.LoadLevel("Level3");
+        Time.timeScale = 1f;
     }
     public void showGameOverPanel()
     {
         gameOverPanel.SetActive(true);
         highScoreGameOverPanel.SetText("High Score: " + Convert.ToString(scoreManager.highScore));
+        Time.timeScale = 0f;
     }
 
     public void showNextLevelPanel()
     {
         nextLevelPanel.SetActive(true);
         highScoreNextLevelPanel.SetText("High Score: " + Convert.ToString(scoreManager.highScore));
+        Time.timeScale = 0f;
     }
 
-   
+
 }
