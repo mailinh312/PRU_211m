@@ -81,7 +81,7 @@ public class Level1ControllerScript : MonoBehaviour
     }
     public void NextLevel2()
     {
-        Application.LoadLevel("Level2");
+        Application.LoadLevel("Level3");
         Time.timeScale = 1f;
     }
     public void NextLevel3()
