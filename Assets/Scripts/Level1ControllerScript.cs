@@ -76,34 +76,35 @@ public class Level1ControllerScript : MonoBehaviour
 
     public void NextLevel()
     {
-        Application.LoadLevel("Level2");
         Time.timeScale = 1f;
+        Application.LoadLevel("Level2");
+        
     }
     public void NextLevel2()
     {
-        Application.LoadLevel("Level3");
         Time.timeScale = 1f;
+        Application.LoadLevel("Level3");
     }
     public void NextLevel3()
     {
-        Application.LoadLevel("Level3");
         Time.timeScale = 1f;
+        Application.LoadLevel("Level3");
     }
     public void Replay()
     {
-        Application.LoadLevel("Level1");
         Time.timeScale = 1f;
+        Application.LoadLevel("Level1");
     }
 
     public void Replay2()
     {
-        Application.LoadLevel("Level2");
         Time.timeScale = 1f;
+        Application.LoadLevel("Level2");
     }
     public void Replay3()
     {
-        Application.LoadLevel("Level3");
         Time.timeScale = 1f;
+        Application.LoadLevel("Level3");
     }
     public void showGameOverPanel()
     {

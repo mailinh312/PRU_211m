@@ -54,7 +54,7 @@ public class SpawnerScriptLv3 : MonoBehaviour
     private IEnumerator GenernateItem()
     {
 
-        yield return new WaitForSeconds(Random.Range(10f, 15f));
+        yield return new WaitForSeconds(Random.Range(5f, 10f));
 
         float minX = -box.bounds.size.x / 2f;
         float maxX = box.bounds.size.x / 2f;

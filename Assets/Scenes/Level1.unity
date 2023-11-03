@@ -2727,6 +2727,10 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 1088699937489989788, guid: 5b957196d0bfe7a4f81d1455cc6a19dc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1426578797078451100, guid: 5b957196d0bfe7a4f81d1455cc6a19dc, type: 3}
       propertyPath: m_text
       value: Great!
@@ -2830,6 +2834,14 @@ PrefabInstance:
     - target: {fileID: 2721440820737025558, guid: 5b957196d0bfe7a4f81d1455cc6a19dc, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164583463513264170, guid: 5b957196d0bfe7a4f81d1455cc6a19dc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 114
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164583463513264170, guid: 5b957196d0bfe7a4f81d1455cc6a19dc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -150
       objectReference: {fileID: 0}
     - target: {fileID: 5124618493655047889, guid: 5b957196d0bfe7a4f81d1455cc6a19dc, type: 3}
       propertyPath: m_Name

@@ -57,13 +57,14 @@ public class NewBehaviourScript : MonoBehaviour
     private IEnumerator GenernateItem()
     {
 
-        yield return new WaitForSeconds(Random.Range(10f, 15f));
+        yield return new WaitForSeconds(Random.Range(8f, 10f));
 
         float minX = -box.bounds.size.x / 2f;
         float maxX = box.bounds.size.x / 2f;
 
         Vector3 temp = transform.position;
         temp.x = Random.Range(minX, maxX);
+
         Instantiate(item, temp, Quaternion.identity);
         StartCoroutine(GenernateItem());
     }
